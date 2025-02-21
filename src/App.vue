@@ -1,22 +1,24 @@
-<template>
-  <div id="app">
-    <codemirror-editor />
-  </div>
-</template>
-
-<script setup>
+<script setup lang="ts">
 import CodemirrorEditor from '@/views/CodemirrorEditor.vue'
 </script>
 
+<template>
+  <CodemirrorEditor />
+</template>
+
 <style lang="less">
-// 仿 uniapp 外层全屏
 html,
 body,
 #app {
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   margin: 0;
   padding: 0;
+}
+
+// 抵消下拉菜单开启时带来的样式
+body {
+  pointer-events: initial !important;
 }
 
 ::-webkit-scrollbar {
@@ -50,7 +52,9 @@ body,
 
   color: #333333;
   background-color: #ffffff;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.12), 0 2px 4px 0 rgba(0, 0, 0, 0.08);
+  box-shadow:
+    0 4px 8px 0 rgba(0, 0, 0, 0.12),
+    0 2px 4px 0 rgba(0, 0, 0, 0.08);
 }
 
 .CodeMirror-hint {
